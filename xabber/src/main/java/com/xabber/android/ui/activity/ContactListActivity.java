@@ -60,6 +60,7 @@ import com.xabber.android.data.roster.RosterManager;
 import com.xabber.android.data.xaccount.XMPPAccountSettings;
 import com.xabber.android.data.xaccount.XabberAccount;
 import com.xabber.android.data.xaccount.XabberAccountManager;
+import com.xabber.android.presentation.ui.contactlist.ContactListFragment;
 import com.xabber.android.ui.adapter.contactlist.ContactListAdapter;
 import com.xabber.android.ui.color.ColorManager;
 import com.xabber.android.ui.dialog.AccountChooseDialogFragment;
@@ -70,8 +71,8 @@ import com.xabber.android.ui.dialog.MucInviteDialog;
 import com.xabber.android.ui.dialog.MucPrivateChatInvitationDialog;
 import com.xabber.android.ui.dialog.TranslationDialog;
 import com.xabber.android.ui.fragment.ContactListDrawerFragment;
-import com.xabber.android.ui.fragment.ContactListFragment;
-import com.xabber.android.ui.fragment.ContactListFragment.ContactListFragmentListener;
+//import com.xabber.android.ui.fragment.ContactListFragment;
+//import com.xabber.android.ui.fragment.ContactListFragment.ContactListFragmentListener;
 import com.xabber.android.ui.preferences.PreferenceEditor;
 import com.xabber.android.ui.widget.bottomnavigation.BottomMenu;
 import com.xabber.xmpp.uri.XMPPUri;
@@ -90,7 +91,7 @@ import java.util.Locale;
  * @author alexander.ivanov
  */
 public class ContactListActivity extends ManagedActivity implements OnAccountChangedListener,
-        View.OnClickListener, OnChooseListener, ContactListFragmentListener,
+        View.OnClickListener, OnChooseListener, com.xabber.android.ui.fragment.ContactListFragment.ContactListFragmentListener,
         ContactListDrawerFragment.ContactListDrawerListener,
         BottomMenu.OnClickListener {
 
@@ -591,8 +592,8 @@ public class ContactListActivity extends ManagedActivity implements OnAccountCha
 
     @Override
     public void onContactClick(AbstractContact abstractContact) {
-        if (contentFragment != null)
-            ((ContactListFragment) contentFragment).getFilterableAdapter().getFilter().filter("");
+//        if (contentFragment != null)
+//            ((ContactListFragment) contentFragment).getFilterableAdapter().getFilter().filter("");
         if (bottomMenu != null) bottomMenu.closeSearch();
 
         if (action == null) {
@@ -744,9 +745,9 @@ public class ContactListActivity extends ManagedActivity implements OnAccountCha
 
     @Override
     public void onSearch(String filter) {
-        if (contentFragment != null && contentFragment instanceof ContactListFragment)
-            ((ContactListFragment) contentFragment).getFilterableAdapter().getFilter().filter(filter);
-        else showContactListFragment(null);
+//        if (contentFragment != null && contentFragment instanceof ContactListFragment)
+//            ((ContactListFragment) contentFragment).getFilterableAdapter().getFilter().filter(filter);
+//        else showContactListFragment(null);
     }
 
     @Override
